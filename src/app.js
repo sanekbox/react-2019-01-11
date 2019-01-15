@@ -7,7 +7,9 @@ class App extends Component {
     return (
       <div>
           <UserForm/>
-          <ArticleList articles={this.props.articles} />
+          <ArticleList
+              articles={this.props.articles}
+          />
       </div>
     );
   }
