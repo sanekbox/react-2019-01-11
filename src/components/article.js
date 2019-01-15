@@ -1,9 +1,9 @@
-import React, {Component} from 'react'
+import React, {PureComponent} from 'react'
 
-class Article extends Component {
+class Article extends PureComponent {
     render() {
         const {article: {title}, isOpen} = this.props
-
+        console.log('render Article');
         return (
             <div>
                 <h3>
@@ -18,7 +18,7 @@ class Article extends Component {
     }
 
     toggleOpen = () => {
-        this.props.toggleArticle()
+        this.props.toggleArticle(this.props.article.id)
     }
 
     get body() {
