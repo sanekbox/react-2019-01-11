@@ -1,10 +1,16 @@
 import React, {PureComponent} from 'react'
 import CommentList from './comment-list';
+import PropTypes from 'prop-types';
 
 class Article extends PureComponent {
+    state = {
+        error: null
+    }
+    componentDidCatch(error) {
+        this.setState({error})
+    }
     render() {
         const {article: {title}, isOpen} = this.props
-        console.log('render Article');
         return (
             <div>
                 <h3>
@@ -28,10 +34,25 @@ class Article extends PureComponent {
         return (
             <section>
                 <p>{article.text}</p>
-                <CommentList comments={article.comments} />
+                {
+                    this.state.error ?
+                        null :
+                        <CommentList comments={article.comments} />
+                }
             </section>
         )
     }
+}
+
+Article.propTypes = {
+    isOpen: PropTypes.bool,
+    toggleArticle: PropTypes.func,
+    article: PropTypes.object.shape({
+        id: PropTypes.string,
+        title: PropTypes.string,
+        text: PropTypes.string,
+        comments: PropTypes.array
+    })
 }
 
 export default Article
