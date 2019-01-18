@@ -15,7 +15,7 @@ class Article extends PureComponent {
             <div>
                 <h3>
                     {title}
-                    <button onClick={this.toggleOpen}>
+                    <button className="test--article__btn" onClick={this.toggleOpen}>
                         {isOpen ? 'close' : 'open'}
                     </button>
                 </h3>
@@ -32,7 +32,7 @@ class Article extends PureComponent {
         const {article, isOpen} = this.props
         if (!isOpen) return null
         return (
-            <section>
+            <section className="test--article_body">
                 <p>{article.text}</p>
                 {
                     this.state.error ?

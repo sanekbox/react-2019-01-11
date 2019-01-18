@@ -11,11 +11,11 @@ export default (OriginalComponent) =>
         })
 
         render() {
-            return <OriginalComponent
+            return <div><OriginalComponent
                 {...this.props}
                 {...this.state}
                 toggleOpenArticle={this.toggleOpenArticle}
-            />;
+            /></div>;
         }
 
     }
