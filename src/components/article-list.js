@@ -7,6 +7,10 @@ class ArticleList extends Component{
         return <ul>{this.articles}</ul>;
     }
 
+    componentDidMount() {
+        this.props.fetchData && this.props.fetchData()
+    }
+
     get articles() {
         const {
             openItemId,
