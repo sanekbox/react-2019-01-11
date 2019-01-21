@@ -6,7 +6,8 @@ import Filters from './components/filters';
 class App extends Component {
 
     render() {
-        const {articles} = this.props;
+        const {articles} = this.props
+
         return (
             <div>
                 <UserForm/>
